@@ -1,5 +1,0 @@
-D:\software\JetBrains\CLion2023.1.1\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0 -B D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\cmake-build-debug
--- Minimal optimization, debug info included
--- Configuring done
--- Generating done
--- Build files have been written to: D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/cmake-build-debug
