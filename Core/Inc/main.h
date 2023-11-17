@@ -79,8 +79,8 @@ void Error_Handler(void);
 #define KEY2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-//#define TASK1
-#define TASK2
+#define TASK1
+//#define TASK2
 //#define TASK3
 //#define TASK4
 //#define TASK5

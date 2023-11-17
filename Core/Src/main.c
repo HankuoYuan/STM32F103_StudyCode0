@@ -160,13 +160,14 @@ int main(void) {
         }
 #endif
 #ifdef TASK3
-        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET) {
+        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
             HAL_Delay(80);
-            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET) {           //判断按键按下
-                while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET);
+            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {           //判断按键按下
+                while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET);
                 HAL_Delay(80);
-                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_SET) {         //判断按键松开，松�?后反转led电平
-                    for (a = 1; FIBONACCI(a) <= 0x00FF; a++) {                      //仅在项数值在1-255时亮起化为二进制时相应的LED
+                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_SET) {         //判断按键松开，松�?后反转led电平
+                    for (a = 1;
+                         FIBONACCI(a) <= 0x00FF; a++) {                      //仅在项数值在1-255时亮起化为二进制时相应的LED
                         HAL_GPIO_TogglePin(GPIOA, FIBONACCI(a));
                         HAL_Delay(1000);
                         HAL_GPIO_TogglePin(GPIOA, FIBONACCI(a));
