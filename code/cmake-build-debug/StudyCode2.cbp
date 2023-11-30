@@ -96,6 +96,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/OLED.h">
+			<Option target="StudyCode2.elf"/>
+		</Unit>
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/gpio.h">
 			<Option target="StudyCode2.elf"/>
 		</Unit>
@@ -105,13 +108,22 @@
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/main.h">
 			<Option target="StudyCode2.elf"/>
 		</Unit>
+		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/oledfont.h">
+			<Option target="StudyCode2.elf"/>
+		</Unit>
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/stm32f1xx_hal_conf.h">
 			<Option target="StudyCode2.elf"/>
 		</Unit>
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/stm32f1xx_it.h">
 			<Option target="StudyCode2.elf"/>
 		</Unit>
+		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/struct_typedef.h">
+			<Option target="StudyCode2.elf"/>
+		</Unit>
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Inc/tim.h">
+			<Option target="StudyCode2.elf"/>
+		</Unit>
+		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/OLED.c">
 			<Option target="StudyCode2.elf"/>
 		</Unit>
 		<Unit filename="D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/gpio.c">

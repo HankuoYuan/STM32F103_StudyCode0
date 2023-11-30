@@ -30,6 +30,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/OLED.c" "CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj" "gcc" "CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj.d"
   "D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/gpio.c" "CMakeFiles/StudyCode2.elf.dir/Core/Src/gpio.c.obj" "gcc" "CMakeFiles/StudyCode2.elf.dir/Core/Src/gpio.c.obj.d"
   "D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/i2c.c" "CMakeFiles/StudyCode2.elf.dir/Core/Src/i2c.c.obj" "gcc" "CMakeFiles/StudyCode2.elf.dir/Core/Src/i2c.c.obj.d"
   "D:/Desktop/files/STM32F103C8T6Developmentboard/STM32F103_StudyCode0/code/Core/Src/main.c" "CMakeFiles/StudyCode2.elf.dir/Core/Src/main.c.obj" "gcc" "CMakeFiles/StudyCode2.elf.dir/Core/Src/main.c.obj.d"

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj"
+  "CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj.d"
   "CMakeFiles/StudyCode2.elf.dir/Core/Src/gpio.c.obj"
   "CMakeFiles/StudyCode2.elf.dir/Core/Src/gpio.c.obj.d"
   "CMakeFiles/StudyCode2.elf.dir/Core/Src/i2c.c.obj"

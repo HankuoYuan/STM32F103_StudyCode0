@@ -34,4 +34,6 @@ CMakeFiles/StudyCode2.elf.dir/Core/Src/gpio.c.obj: \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_i2c.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pwr.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/OLED.h \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/struct_typedef.h

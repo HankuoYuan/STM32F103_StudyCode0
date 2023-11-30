@@ -1,5 +1,15 @@
-CMakeFiles/StudyCode2.elf.dir/Core/Src/main.c.obj: \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Src\main.c \
+CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj: \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Src\OLED.c \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/OLED.h \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/struct_typedef.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h \
+ d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h \
+ D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/oledfont.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/main.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/stm32f1xx_hal_conf.h \
@@ -8,13 +18,6 @@ CMakeFiles/StudyCode2.elf.dir/Core/Src/main.c.obj: \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Device\ST\STM32F1xx\Include/stm32f1xx.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Device\ST\STM32F1xx\Include/stm32f103xb.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Include/core_cm3.h \
- d:\software\jetbrains\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h \
- d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Include/cmsis_version.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Include/cmsis_compiler.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\CMSIS\Include/cmsis_gcc.h \
@@ -34,13 +37,6 @@ CMakeFiles/StudyCode2.elf.dir/Core/Src/main.c.obj: \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pwr.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/i2c.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/main.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/tim.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/gpio.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/OLED.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/struct_typedef.h \
- D:\Desktop\files\STM32F103C8T6Developmentboard\STM32F103_StudyCode0\code\Core\Inc/OLED.h \
  d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h \
  d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h \
  d:\software\jetbrains\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h \

@@ -24,7 +24,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "OLED.h"
+#include <stdio.h>
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,11 +47,32 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+#ifdef TASK1
+uint8_t task[] = TASK1;
+#endif
+#ifdef TASK2
+uint8_t task[] = TASK2;
+#endif
 #ifdef TASK3
+uint8_t task[] = TASK3;
 uint8_t a;
 #endif
+#ifdef TASK4
+uint8_t task[] = TASK4;
+#endif
 #ifdef TASK5
-uint16_t compare = 0;
+uint8_t task[] = TASK5;
+static uint16_t compare = 0;
+uint8_t brightness;
+uint8_t bri[4];
+#endif
+#ifdef TASK6
+uint8_t task[] = TASK6;
+static uint32_t time = 0;
+static uint8_t times = 0;
+uint16_t distance = 0;
+uint8_t num[7];
 #endif
 /* USER CODE END PV */
 
@@ -60,9 +83,20 @@ void SystemClock_Config(void);
 
 uint16_t FIBONACCI(uint8_t a);
 
+void uint16_t_to_bin_string(uint16_t value, uint8_t *buf, size_t buf_size);
+
 #endif
 #ifdef TASK4
 
+//void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
+#endif
+#ifdef TASK6
+
+void user_delay_us(uint16_t us);
+
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+//
 //void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
 #endif
@@ -102,6 +136,7 @@ int main(void) {
     MX_GPIO_Init();
     MX_I2C1_Init();
     MX_TIM2_Init();
+    MX_TIM1_Init();
     /* USER CODE BEGIN 2 */
 #ifndef TASK5
 #ifndef TASK4
@@ -116,13 +151,21 @@ int main(void) {
 #endif
 #ifdef TASK4
     //    HAL_TIM_Base_Start_IT(&htim2);
-        HAL_TIM_Base_Start(&htim2);
-        HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+    HAL_TIM_Base_Start(&htim2);
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 #endif
 #ifdef TASK5
     //    HAL_TIM_Base_Start_IT(&htim2);
     HAL_TIM_Base_Start(&htim2);
     HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+#endif
+    OLED_init();
+    OLED_LOGO();
+    HAL_Delay(2000);
+#ifndef TASK3
+    OLED_operate_gram(PEN_CLEAR);
+    OLED_show_string(0, 0, "The current task is:");
+    OLED_show_string(1, 0, task);
 #endif
     /* USER CODE END 2 */
 
@@ -132,26 +175,43 @@ int main(void) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+#ifdef TASK3
+        OLED_operate_gram(PEN_CLEAR);
+        OLED_show_string(0, 0, "The current task is: TASK3");
+//        OLED_show_string(1, 0, task);
+#endif
 #ifdef TASK1
         FLOWLED();
 #endif
 #ifdef TASK2
         if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
             HAL_Delay(80);
-            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {           //鍒ゆ柇鎸夐敭鎸変笅
+            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
+                OLED_show_string(2, 0, "              ");
+                OLED_show_string(2, 0, "KEY0 is down!");
+                //鍒ゆ柇鎸夐敭鎸変笅
                 while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET);
                 HAL_Delay(80);
-                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_SET) {         //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
+                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_SET) {
+                    //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
                     HAL_GPIO_TogglePin(GPIOA, 0X00FF);
+                    OLED_show_string(2, 0, "             ");
+                    OLED_show_string(2, 0, "KEY0 is up!");
                 }
             }
         }
         if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
             HAL_Delay(80);
-            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {           //鍒ゆ柇鎸夐敭鎸変笅
+            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
+                OLED_show_string(2, 0, "              ");
+                OLED_show_string(3, 0, "KEY1 is down!");
+                //鍒ゆ柇鎸夐敭鎸変笅
                 while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET);
                 HAL_Delay(80);
-                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_SET) {         //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
+                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_SET) {
+                    OLED_show_string(3, 0, "              ");
+                    OLED_show_string(3, 0, "KEY1 is up!");
+                    //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
                     while (1) {
                         FLOWLED();
                     }
@@ -162,13 +222,33 @@ int main(void) {
 #ifdef TASK3
         if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
             HAL_Delay(80);
-            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {           //鍒ゆ柇鎸夐敭鎸変笅
+            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
+                //鍒ゆ柇鎸夐敭鎸変笅
+                OLED_show_string(2, 0, "              ");
+                OLED_show_string(2, 0, "KEY0 is down!");
                 while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET);
                 HAL_Delay(80);
-                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_SET) {         //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
+                if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_SET) {
+                    //鍒ゆ柇鎸夐敭鏉惧紑锛屾澗寮?鍚庡弽杞琹ed鐢靛钩
+                    OLED_show_string(2, 0, "             ");
+                    OLED_show_string(2, 0, "KEY0 is up!");
+                    uint8_t str0[4];
+                    uint8_t str1[17];
+                    uint8_t str2[4];
                     for (a = 1;
-                         FIBONACCI(a) <= 0x00FF; a++) {                      //浠呭湪椤规暟鍊煎湪1-255鏃朵寒璧峰寲涓轰簩杩涘埗鏃剁浉搴旂殑LED
+                         FIBONACCI(a) <= 0x00FF; a++) {
+                        //浠呭湪椤规暟鍊煎湪1-255鏃朵寒璧峰寲涓轰簩杩涘埗鏃剁浉搴旂殑LED
                         HAL_GPIO_TogglePin(GPIOA, FIBONACCI(a));
+                        sprintf(str0, "%d", FIBONACCI(a));
+                        sprintf(str2, "%d", a);
+                        uint16_t_to_bin_string(FIBONACCI(a), str1, sizeof(str1));
+                        // 将整数转为二进制字符串
+                        OLED_show_string(3, 0, "The binary num is:");
+                        OLED_show_string(4, 0, str1);
+                        OLED_show_string(1, 10, "Num:");
+                        OLED_show_string(1, 15, str0);
+                        OLED_show_string(2, 12, "Time:");
+                        OLED_show_string(2, 17, str2);
                         HAL_Delay(1000);
                         HAL_GPIO_TogglePin(GPIOA, FIBONACCI(a));
                     }
@@ -177,14 +257,33 @@ int main(void) {
         }
 #endif
 #ifdef TASK4
-        for (uint16_t i = 0; i < 1000; ++i) {
+        uint8_t brightness;
+        uint8_t bri[4];
+        uint16_t i = 0;
+        for (; i + 40 <= 1000;) {
+            i += 40;
             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, i);
-            HAL_Delay(1);
+//            HAL_Delay(1);
+            OLED_show_string(2, 0, "The brightness is:");
+            brightness = i / 10;
+            sprintf(bri, "%d", brightness);
+            OLED_show_string(3, 0, bri);
+            OLED_show_string(3, 3, "%");
         }
         HAL_Delay(200);
-        for (uint16_t i = 1000; i > 0; --i) {
+        OLED_show_string(3, 2, " ");
+        for (; i - 40 >= 0;) {
+            i -= 40;
             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, i);
-            HAL_Delay(1);
+//            HAL_Delay(1);
+            OLED_show_string(2, 0, "The brightness is:");
+            brightness = i / 10;
+            if (brightness < 10) {
+                OLED_show_string(3, 1, " ");
+            }
+            sprintf(bri, "%d", brightness);
+            OLED_show_string(3, 0, bri);
+            OLED_show_string(3, 3, "%");
         }
         HAL_Delay(200);
 #endif
@@ -194,10 +293,15 @@ int main(void) {
             if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {           //鍒ゆ柇鎸夐敭鎸変笅
                 while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
                     while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
-                        if (compare < 1000) {
+                        if ((compare + 25) < 1000) {
+                            compare += 25;
                             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, compare);
-                            compare++;
-                            HAL_Delay(3);
+//                            HAL_Delay(3);
+                            OLED_show_string(2, 0, "The brightness is:");
+                            brightness = compare / 10;
+                            sprintf(bri, "%d", brightness);
+                            OLED_show_string(3, 0, bri);
+                            OLED_show_string(3, 3, "%");
                         }
                     }
                     HAL_Delay(80);
@@ -209,16 +313,70 @@ int main(void) {
             if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {           //鍒ゆ柇鎸夐敭鎸変笅
                 while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
                     while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
-                        if (compare > 0) {
+                        if ((compare - 25) > 0) {
+                            compare -= 25;
                             __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, compare);
-                            compare--;
-                            HAL_Delay(3);
+//                            HAL_Delay(3);
+                            OLED_show_string(2, 0, "The brightness is:");
+                            brightness = compare / 10;
+                            if (brightness < 10) {
+                                OLED_show_string(3, 1, " ");
+                            }
+                            sprintf(bri, "%d", brightness);
+                            OLED_show_string(3, 2, " ");
+                            OLED_show_string(3, 0, bri);
+                            OLED_show_string(3, 3, "%");
                         }
                     }
                     HAL_Delay(80);
                 }
             }
         }
+#endif
+#ifdef TASK6
+//        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_15);
+//        HAL_Delay(1);
+//        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_15);
+//        time = 0;
+//        while (1) {
+//            if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_SET) {
+//                time = HAL_GetTick() - time;
+//                while (1) {
+//                    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_RESET) {
+//                        time = HAL_GetTick() - time;
+//                        break;
+//                    }
+//                }
+//                break;
+//            }
+//        }
+// 开始测距
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);  // trig引脚置高
+        HAL_Delay(1);  // 持续至少10us
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET); // trig引脚置低
+
+        // 等待echo上升沿
+        while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_RESET);
+
+        // 重置定时器
+        __HAL_TIM_SET_COUNTER(&htim1, 0);
+
+        // 等待echo下降沿
+        while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_SET);
+
+        // 读取定时器值
+        time = __HAL_TIM_GET_COUNTER(&htim1);
+
+        // 计算距离 (假设声速为340m/s)
+        distance = time * 0.017; // 时间转为秒并计算距离
+
+        // 在此可以添加代码将distance值输出到某个显示设备或串口打印出来。
+//        distance = time * 17;
+        sprintf(num, "%d", distance);
+        OLED_show_string(2, 0, "Distance:");
+        OLED_show_string(2, 10, "     ");
+        OLED_show_string(2, 10, num);
+        OLED_show_string(2, 15, "cm");
 #endif
     }
     /* USER CODE END 3 */
@@ -287,6 +445,14 @@ uint16_t FIBONACCI(uint8_t a) {
     }
 }
 
+//将16位十进制数转成二进制字符串
+void uint16_t_to_bin_string(uint16_t value, uint8_t *buf, size_t buf_size) {
+    for (size_t i = 0; i < buf_size - 1; ++i) {
+        buf[i] = (value >> (15 - i)) & 1 ? '1' : '0';
+    }
+    buf[buf_size - 1] = '\0';
+}
+
 #endif
 #ifdef TASK4
 
@@ -294,6 +460,33 @@ uint16_t FIBONACCI(uint8_t a) {
 //    if (htim == &htim2) {
 //        //500ms trigger
 //        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+//    }
+//}
+
+#endif
+#ifdef TASK6
+
+void user_delay_us(uint16_t us) {
+    for (; us > 0; us--) {
+        for (uint8_t i = 50; i > 0; i--);
+    }
+}
+
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+//    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+//    if (times == 2) {
+//        times = 0;
+//        time = 0;
+//    }
+//    time = HAL_GetTick() - time;
+//    times++;
+//}
+//
+//void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+//    if (htim == &htim2) {
+//        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_15);
+//        user_delay_us(100);
+//        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_15);
 //    }
 //}
 

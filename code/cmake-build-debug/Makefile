@@ -128,6 +128,30 @@ StudyCode2.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCode2.elf.dir\build.make CMakeFiles/StudyCode2.elf.dir/build
 .PHONY : StudyCode2.elf/fast
 
+Core/Src/OLED.obj: Core/Src/OLED.c.obj
+.PHONY : Core/Src/OLED.obj
+
+# target to build an object file
+Core/Src/OLED.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCode2.elf.dir\build.make CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.obj
+.PHONY : Core/Src/OLED.c.obj
+
+Core/Src/OLED.i: Core/Src/OLED.c.i
+.PHONY : Core/Src/OLED.i
+
+# target to preprocess a source file
+Core/Src/OLED.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCode2.elf.dir\build.make CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.i
+.PHONY : Core/Src/OLED.c.i
+
+Core/Src/OLED.s: Core/Src/OLED.c.s
+.PHONY : Core/Src/OLED.s
+
+# target to generate assembly for a file
+Core/Src/OLED.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCode2.elf.dir\build.make CMakeFiles/StudyCode2.elf.dir/Core/Src/OLED.c.s
+.PHONY : Core/Src/OLED.c.s
+
 Core/Src/gpio.obj: Core/Src/gpio.c.obj
 .PHONY : Core/Src/gpio.obj
 
@@ -697,6 +721,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... StudyCode2.elf
+	@echo ... Core/Src/OLED.obj
+	@echo ... Core/Src/OLED.i
+	@echo ... Core/Src/OLED.s
 	@echo ... Core/Src/gpio.obj
 	@echo ... Core/Src/gpio.i
 	@echo ... Core/Src/gpio.s

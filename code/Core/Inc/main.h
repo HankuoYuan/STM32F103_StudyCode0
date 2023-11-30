@@ -79,11 +79,12 @@ void Error_Handler(void);
 #define KEY2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define TASK1
-//#define TASK2
-//#define TASK3
-//#define TASK4
-//#define TASK5
+//#define TASK1 "TASK1"
+//#define TASK2 "TASK2"
+//#define TASK3 "TASK3"
+//#define TASK4 "TASK4"
+//#define TASK5 "TASK5"
+#define TASK6 "TASK6"
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
