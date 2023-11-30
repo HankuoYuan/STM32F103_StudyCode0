@@ -51,7 +51,7 @@
 /* USER CODE END Private defines */
 ```
 如果想要切换成对应的任务的代码，只需要将对应任务前面的注释去掉，并把其他任务注释掉即可。\
-演示如下：\
+演示如下(基于Version1.0.2)：\
 任务1
 ![image](./docs/task1%20-small-original.gif)
 任务2
